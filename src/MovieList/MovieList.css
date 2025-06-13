@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+
+.MovieList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 1400px;
+    height: 100%;
+}
+
+
+@media (min-width: 1200px) {
+    .MovieList {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: min(100vw - 40px, 1600px); 
+    }
+}
+
+@media (min-width: 1600px) {
+    .MovieList {
+        max-width: min(100vw - 40px, 2000px);
+    }
+}

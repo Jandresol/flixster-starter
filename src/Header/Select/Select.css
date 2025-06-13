@@ -1,0 +1,29 @@
+select {
+    font-family: 'Outfit', serif;
+    padding: 0.8rem 1rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border: none;
+}
+
+select:focus {
+    background: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+select:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 768px) {
+    select {
+        max-width: 300px;
+        margin-top: 10px;
+    }
+}

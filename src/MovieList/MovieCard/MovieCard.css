@@ -1,0 +1,21 @@
+.MovieCard {
+    width: 100%;
+    min-width: 280px; 
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(139, 90, 131, 0.1);
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    background-color: rgb(220, 220, 220);
+
+}
+
+.movie-image{
+    display: flex;
+    height: 60%;
+    align-items: center;
+}
