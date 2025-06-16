@@ -1,5 +1,12 @@
 import '../Modal/Modal.css';
 
+const formatDate = (dateString) => {
+    if (!dateString) return '';
+    const date = new Date(dateString);
+    const options = { month: 'short', year: 'numeric' };
+    return date.toLocaleDateString('en-US', options);
+};
+
 function Modal({ show, onClose, title, rating, poster, releaseDate, overview, genres, runtime, trailerId }) {
     if (!show) {
         return null;
@@ -14,9 +21,23 @@ function Modal({ show, onClose, title, rating, poster, releaseDate, overview, ge
                     <div className="modal-header-text">
                         <h2 className="modal-title">{title}</h2>
                         <div className="header-details">
-                            <p className="modal-rating"><strong>Rating:</strong> {Math.round(rating * 10) / 10}</p>
-                            {releaseDate && <p className="modal-release"><strong>Release Date:</strong> {releaseDate}</p>}
-                                                {runtime && <p className="modal-runtime"><strong>Runtime:</strong> {runtime} min</p>}
+                            <p className="modal-rating">
+                                <i className="fas fa-star icon"></i>
+                                {Math.round(rating * 10) / 10}
+                            </p>
+                            {releaseDate && (
+                                <p className="modal-release">
+                                    <i className="fas fa-calendar-alt icon"></i>
+                                    {formatDate(releaseDate)}
+                                </p>
+                            )}
+                            {runtime && (
+                            <p className="modal-runtime">
+                                <i className="fas fa-clock icon"></i>
+                                {runtime} min
+                            </p>
+                            )}
+
                         </div>
                     </div>
 

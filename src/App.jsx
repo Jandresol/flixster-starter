@@ -3,6 +3,7 @@ import './App.css'
 import Header from './Header/Header.jsx'
 import MovieList from './MovieList/MovieList.jsx'
 import LoadMore from './LoadMore/LoadMore.jsx'
+import '@fortawesome/fontawesome-free/css/all.css';
 
 const App = () => {
   const [movies, setMovies] = useState([]);
