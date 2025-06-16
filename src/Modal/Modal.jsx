@@ -44,10 +44,20 @@ function Modal({ show, onClose, title, rating, poster, releaseDate, overview, ge
                 </div>
                 <div className="modal-body">
                     <div className="modal-text">
-                        {Array.isArray(genres) && genres.map((genre, index) => (
-                        <span key={index} className="genre-pill">{genre}</span>
+                        <div className="genre-container">
+                            {genres.map((g, index) => (
+                            <span key={index} className="genre-pill">
+                                {g.name}
+                            </span>
                         ))}
-                        {overview && <p className="modal-overview">{overview}</p>}
+                        </div>
+                        {overview && 
+                            <div className="modal-overview">
+                                <h2>Overview</h2>
+                                <p>{overview}
+                                </p>
+                            </div>
+                        }
                     </div>
                     {trailerId ? (
                     <iframe

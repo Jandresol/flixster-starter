@@ -19,14 +19,13 @@ header h1 {
 }
 
 .controls{
-    max-width: 1500px;
-    padding: 0px 50px;
     display: flex;
     flex-direction: row;
     width: 100%;
     justify-content: center;
     align-items: center;
 }
+
 
 .dropdown-container {
     display: flex;

@@ -1,30 +1,81 @@
 .MovieCard {
     width: 100%;
-    background: white;
+    background: rgba(0, 0, 0, 0.239);
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease;
     cursor: pointer;
+    position: relative; /* Added for absolute positioning of icons */
 }
-.MovieCard:hover{
+
+.MovieCard:hover {
     transform: scale(1.05);
 }
+
 .movie-image {
     width: 100%;
     height: auto;
     display: block;
 }
+
 .movie-text {
-  padding: 10px;
-  text-align: center;
+    padding: 10px;
+    text-align: center;
 }
+
 .title {
-  font-size: 16px;
-  margin: 0;
-  color: #333;
+    font-size: 18px;
+    font-family: 'Outfit';
+    font-weight: 600;
+    margin: 0;
+    color: #e1e1e1;
 }
+
 .rating {
-  font-size: 14px;
-  color: #777;
+    font-size: 14px;
+    color: #bababa;
+}
+
+i {
+    color: #facc15;
+}
+
+.favorite-icon, .watched-icon {
+    position: absolute;
+    top: 10px;
+    font-size: 20px;
+    padding: 10px;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    box-sizing: border-box;
+}
+
+.favorite-icon {
+    right: 10px;
+}
+
+.watched-icon {
+    right: 60px; /* Positioned to the left of favorite icon */
+}
+
+.favorite-icon:hover, .watched-icon:hover {
+    transform: scale(1.15);
+    background: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.favorite-icon {
+    transition: all 0.3s ease, color 0.6s ease;
+}
+
+.watched-icon {
+    transition: all 0.3s ease, color 0.6s ease;
 }

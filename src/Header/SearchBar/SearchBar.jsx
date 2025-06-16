@@ -14,17 +14,15 @@ function SearchBar({ searchQuery, searchInput, handleSearchChange, handleSearchS
     };
 
     return (
-        <form className={`SearchBar ${isFocused ? 'focused' : ''}`} onSubmit={handleSubmit}>
-            <div className="search-container">
-                <input 
-                    type="text" 
-                    value={searchInput} 
-                    onChange={handleSearchChange}
-                    onFocus={() => setIsFocused(true)}
-                    placeholder="Search movies..." 
-                    className="search-input"
-                />
-            </div>
+        <form className={`search-bar ${isFocused ? 'focused' : ''}`} onSubmit={handleSubmit}>
+            <input 
+                type="text" 
+                value={searchInput} 
+                onChange={handleSearchChange}
+                onFocus={() => setIsFocused(true)}
+                placeholder="Search movies..." 
+                className="search-input"
+            />
             <div className="SearchButtons">
                 <button type="submit" className={`search-button ${searchQuery ? 'searched' : ''}`}>Search</button>
                 {searchQuery && (

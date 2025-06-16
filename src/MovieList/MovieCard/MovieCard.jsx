@@ -6,6 +6,8 @@ function MovieCard({ id, title, poster, rating }) {
     const [selectedMovie, setSelectedMovie] = useState(null);
     const [showModal, setShowModal] = useState(false);
     const [trailerId, setTrailerId] = useState(null);
+    const [favorite, setFavorite] = useState(false);
+    const [watched, setWatched] = useState(false);
 
     const handleCardClick = async () => {
         setShowModal(true);
@@ -22,6 +24,16 @@ function MovieCard({ id, title, poster, rating }) {
     function handleClose() {
         setShowModal(false);
         setSelectedMovie(null);
+    }
+    
+    function handleFavorite(e) {
+        e.stopPropagation();
+        setFavorite(!favorite);
+    }
+
+    function handleWatched(e) {
+        e.stopPropagation();
+        setWatched(!watched);
     }
 
     const loadTrailer = async () => {
@@ -43,10 +55,23 @@ function MovieCard({ id, title, poster, rating }) {
     return (
         <>
             <div className="MovieCard" onClick={handleCardClick}>
+                <i 
+                    className={`favorite-icon ${favorite ? 'fas' : 'far'} fa-heart`}
+                    onClick={handleFavorite}
+                    style={{ color: favorite ? '#e74c3c' : '#bdc3c7' }}
+                ></i>
+                <i 
+                    className={`watched-icon ${watched ? 'fas' : 'far'} fa-eye `}
+                    onClick={handleWatched}
+                    style={{ color: watched ? '#3498db' : '#bdc3c7' }}
+                ></i>
                 <img className="movie-image" src={poster} alt="movie poster" />
                 <div className="movie-text">
                     <h3 className="title">{title}</h3>
-                    <h4 className="rating">Rating: {Math.round(rating * 10) / 10}</h4>
+                    <h4 className="rating">
+                        <i className="fas fa-star icon"></i>
+                        {Math.round(rating * 10) / 10}
+                    </h4>
                 </div>
             </div>
             {selectedMovie && (
@@ -58,7 +83,7 @@ function MovieCard({ id, title, poster, rating }) {
                     poster={poster}
                     releaseDate={selectedMovie.release_date}
                     overview={selectedMovie.overview}
-                    genres={selectedMovie.genres?.map(g => g.name).join(', ')}
+                    genres={selectedMovie.genres}
                     runtime={selectedMovie.runtime}
                     trailerId={trailerId} 
                 />
