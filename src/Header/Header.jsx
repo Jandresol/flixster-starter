@@ -3,12 +3,27 @@ import Select from './Select/Select.jsx'
 
 import './Header.css'
 
-function Header(){
+function Header({
+    searchQuery,
+    searchInput,
+    handleSearchChange,
+    handleSearchSubmit,
+    clearSearch,
+    category,
+    handleCategoryChange,
+    isSearching
+}){
     return (
         <header>
             <h1>Flixster</h1>
-            <div class="controls">
-                <SearchBar/>
+            <div className="controls">
+                <SearchBar
+                    searchQuery={searchQuery}
+                    searchInput={searchInput}
+                    handleSearchChange={handleSearchChange}
+                    clearSearch={clearSearch}
+                    handleSearchSubmit={handleSearchSubmit}
+                />
                 <Select
                     options={[
                         { value: 'popular', label: 'Popular' },
@@ -16,8 +31,9 @@ function Header(){
                         { value: 'now_playing', label: 'Now Playing' },
                         { value: 'upcoming', label: 'Upcoming' }
                     ]}
-                    onChange={(e) => console.log(e.target.value)}
-                    value="popular"
+                    onChange={(e) => handleCategoryChange(e.target.value)}
+                    value={category}
+                    disabled={isSearching}
                 />
             </div>
         </header>

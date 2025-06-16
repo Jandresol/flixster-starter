@@ -1,12 +1,44 @@
-import './SearchBar.css'
+import { useState } from 'react';
+import './SearchBar.css';
 
-function SearchBar() {
+function SearchBar({ searchQuery, searchInput, handleSearchChange, handleSearchSubmit, clearSearch }) {
+    const [isFocused, setIsFocused] = useState(false);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();   
+        handleSearchSubmit(e); 
+    };
+
+    const handleClear = () => {
+        clearSearch();
+    };
+
     return (
-        <form className = "SearchBar">
-            <input type="Text" Placeholder="Search Here"></input>
-            <button>
-                Search
-            </button>
+        <form className={`SearchBar ${isFocused ? 'focused' : ''}`} onSubmit={handleSubmit}>
+            <div className="search-container">
+                <input 
+                    type="text" 
+                    value={searchInput} 
+                    onChange={handleSearchChange}
+                    onFocus={() => setIsFocused(true)}
+                    placeholder="Search movies..." 
+                    className="search-input"
+                />
+            </div>
+            <div className="SearchButtons">
+                <button type="submit" className={`search-button ${searchQuery ? 'searched' : ''}`}>Search</button>
+                {searchQuery && (
+                <button 
+                    type="button" 
+                    className="clear-button"
+                    onClick={handleClear}
+                    aria-label="Clear search"
+                >
+                    Clear
+                </button>
+                )}
+            </div>
+
         </form>
     );
 }
