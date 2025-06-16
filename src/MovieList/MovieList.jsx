@@ -24,10 +24,6 @@ function MovieList({ movies }) {
                         title={movie.title}
                         poster={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                         rating={movie.vote_average}
-                        releaseDate={movie.release_date}
-                        overview={movie.overview}
-                        genre={getGenreNames(movie.genre_ids)}
-                        runtime={movie.runtime}
                     />
                 );
             })}

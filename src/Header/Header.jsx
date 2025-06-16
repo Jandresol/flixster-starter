@@ -1,5 +1,6 @@
 import SearchBar from './SearchBar/SearchBar.jsx'
 import Select from './Select/Select.jsx'
+import Sort from './Sort/Sort.jsx'
 
 import './Header.css'
 
@@ -11,7 +12,8 @@ function Header({
     clearSearch,
     category,
     handleCategoryChange,
-    isSearching
+    sort,
+    handleSortChange,
 }){
     return (
         <header>
@@ -24,17 +26,29 @@ function Header({
                     clearSearch={clearSearch}
                     handleSearchSubmit={handleSearchSubmit}
                 />
-                <Select
-                    options={[
-                        { value: 'popular', label: 'Popular' },
-                        { value: 'top_rated', label: 'Top Rated' },
-                        { value: 'now_playing', label: 'Now Playing' },
-                        { value: 'upcoming', label: 'Upcoming' }
-                    ]}
-                    onChange={(e) => handleCategoryChange(e.target.value)}
-                    value={category}
-                    disabled={isSearching}
-                />
+                <div className="dropdown-container">
+                    <Sort
+                        options={[
+                            { value: 'default', label: 'Default' },
+                            { value: 'title', label: 'Title (A-Z)' },
+                            { value: 'date', label: 'Newest' },
+                            { value: 'rating', label: 'Rating' },
+                        ]}
+                        onChange={(e) => handleSortChange(e.target.value)}
+                        value={sort}
+                    />
+
+                    <Select
+                        options={[
+                            { value: 'popular', label: 'Popular' },
+                            { value: 'top_rated', label: 'Top Rated' },
+                            { value: 'now_playing', label: 'Now Playing' },
+                            { value: 'upcoming', label: 'Upcoming' }
+                        ]}
+                        onChange={(e) => handleCategoryChange(e.target.value)}
+                        value={category}
+                    />
+                </div>
             </div>
         </header>
     );

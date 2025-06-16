@@ -12,6 +12,7 @@ const App = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [category, setCategory] = useState('popular');
   const [searchInput, setSearchInput] = useState('');
+  const [sort, setSort] = useState('default');
 
   // Fetch movies whenever page, searchQuery, or category changes
   useEffect(() => {
@@ -25,9 +26,9 @@ const App = () => {
         let url;
         
         if (searchQuery.trim()) {
-          url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${encodeURIComponent(searchQuery)}&page=${page}`;
+          url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&include_adult=false&query=${encodeURIComponent(searchQuery)}&page=${page}`;
         } else {
-          url = `https://api.themoviedb.org/3/movie/${category}?api_key=${apiKey}&page=${page}`;
+          url = `https://api.themoviedb.org/3/movie/${category}?api_key=${apiKey}&include_adult=false&page=${page}`;
         }
 
         const response = await fetch(url);
@@ -35,11 +36,21 @@ const App = () => {
           throw new Error('Failed to fetch movie data');
         }
         const data = await response.json();
+        const sortedResults = sortMovies(data.results, sort);
         
+        // Avoid bugs
         if (page === 1) {
-          setMovies(data.results);
+          setMovies(sortedResults);
         } else {
-          setMovies(prev => [...prev, ...data.results]);
+          setMovies(prev => {
+            const updatedMovies = [...prev];
+            for (const movie of sortedResults) {
+              if (!prev.find(m => m.id === movie.id)) {
+                updatedMovies.push(movie);
+              }
+            }
+            return updatedMovies;
+          });
         }
       } catch (err) {
         setError(err.message);
@@ -87,6 +98,26 @@ const App = () => {
       setPage(1);
   };
 
+  const sortMovies = (movies, sort) => {
+    switch (sort) {
+      case 'default':
+        return [...movies];
+      case 'title':
+        return [...movies].sort((a, b) => a.title.localeCompare(b.title));
+      case 'date':
+        return [...movies].sort((a, b) => new Date(b.release_date) - new Date(a.release_date));
+      case 'rating':
+        return [...movies].sort((a, b) => b.vote_average - a.vote_average);
+      default:
+        return movies;
+    }
+  };
+
+  const handleSortChange = (newSort) => {
+    setSort(newSort);
+    setMovies(prev => sortMovies([...prev], newSort));
+  }
+
   return (
     <div className="App">
       <Header
@@ -97,6 +128,8 @@ const App = () => {
         category={category}
         handleSearchSubmit={handleSearchSubmit}
         handleCategoryChange={handleCategoryChange}
+        sort={sort}
+        handleSortChange={handleSortChange}
       />
       <main>
         {error && <div className="error">Error: {error}</div>}

@@ -11,9 +11,10 @@
 }
 
 .modal-content {
-    background: white;
+    background: #0f172a;
+    color: white;
     margin: auto;
-    padding: 30px;
+    padding: 0px;
     border: 2px solid var(--sunset-orange);
     border-radius: 20px;
     width: 80%;
@@ -48,44 +49,14 @@
     transform: rotate(90deg);
 }
 
-.modal-info {
+.modal-body {
+    margin: 30px;
     display: flex;
     flex-direction: column;
     gap: 0px;
 }
 
-.modal-header {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    padding: 10px 0;
-    flex-wrap: wrap;
-}
 
-.modal-header > #modal-image {
-    width: 200px;
-    height: 200px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 16px;
-    border: 3px solid var(--sunset-orange);
-    flex-shrink: 0;
-    background-color: var(--primary-color);
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.modal-header > #modal-image:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 25px rgba(255, 140, 66, 0.4);
-}
-
-#modal-header-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
 
 #movie-name {
     font-size: 1.5rem;
@@ -99,17 +70,23 @@
     margin: 0;
 }
 .modal-close {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  background-color: transparent;
-  border: none;
-  font-size: 24px;
-  font-weight: bold;
-  cursor: pointer;
-  color: #333;
-  transition: color 0.2s ease;
-  border-radius: 8px;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    background-color: transparent;
+    border: none;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #ffffff;
+    background-color: rgba(102, 102, 102, 0.8);
+    transition: color 0.2s ease;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    padding: 0px;
+    z-index: 1000;
 }
 
 .modal-close:hover{
@@ -118,3 +95,47 @@
     transition: color 0.3s ease;
 }
 
+.modal-header {
+    position: relative;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: white; 
+    overflow: hidden;
+}
+
+.modal-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #3341553d 0%, #1e293bdf 100%);
+    z-index: 5;
+}
+
+.modal-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    z-index: 0;
+}
+
+.modal-header-text {
+    z-index: 10;
+    padding: 20px;
+    font-family: 'Outfit';
+
+}
+
+.modal-header-text h2{
+    font-size: 40px;
+    padding: 0px;
+    margin: 0px;
+}
