@@ -4,6 +4,7 @@ import Header from './Header/Header.jsx'
 import MovieList from './MovieList/MovieList.jsx'
 import LoadMore from './LoadMore/LoadMore.jsx'
 import '@fortawesome/fontawesome-free/css/all.css';
+import Sidebar from './Sidebar/Sidebar.jsx';
 
 const App = () => {
   const [movies, setMovies] = useState([]);
@@ -14,6 +15,17 @@ const App = () => {
   const [category, setCategory] = useState('popular');
   const [searchInput, setSearchInput] = useState('');
   const [sort, setSort] = useState('default');
+  const [sidebar, setSidebar] = useState('home')
+  const [favorites, setFavorites] = useState(new Set());
+  const [watched, setWatched] = useState(new Set());
+  const [view, setView] = useState("home");
+  let filteredMovies = movies;
+
+  if (view === "favorites") {
+    filteredMovies = movies.filter((movie) => favorites.has(movie.id));
+  } else if (view === "watched") {
+    filteredMovies = movies.filter((movie) => watched.has(movie.id));
+  }
 
   // Fetch movies whenever page, searchQuery, or category changes
   useEffect(() => {
@@ -119,6 +131,27 @@ const App = () => {
     setMovies(prev => sortMovies([...prev], newSort));
   }
 
+  const handleSidebar = (selection) => {
+      setSidebar(selection);
+  };
+
+  const toggleFavorite = (id) => {
+    setFavorites((prev) => {
+        const updated = new Set(prev);
+        updated.has(id) ? updated.delete(id) : updated.add(id);
+        return updated;
+    });
+  }
+
+  const toggleWatched = (id) => {
+      setWatched((prev) => {
+          const updated = new Set(prev);
+          updated.has(id) ? updated.delete(id) : updated.add(id);
+          return updated;
+      });
+  }
+
+
   return (
     <div className="App">
       <Header
@@ -133,19 +166,28 @@ const App = () => {
         handleSortChange={handleSortChange}
       />
       <main>
+        <div style={{ marginLeft: '200px', padding: '20px', flexGrow: 1 }}>
+      </div>
         {error && <div className="error">Error: {error}</div>}
         {movies.length === 0 && !loading && (
           <div className="no-results">
             No movies found for "{searchQuery}". Try a different search term.
           </div>
         )}
-        <MovieList movies={movies} />
+        <MovieList 
+          movies={filteredMovies}
+          favorites={favorites}
+          watched={watched}
+          onFavoriteToggle={toggleFavorite}
+          onWatchedToggle={toggleWatched} 
+        />
         {movies.length > 0 && !loading && (
           <LoadMore onClick={handleLoadMore} />
         )}
         {loading && <div className="loading">Loading...</div>}
       </main>
       <footer>© 2025 Flixster</footer>
+      <Sidebar setView={setView} />
     </div>
   )
 }

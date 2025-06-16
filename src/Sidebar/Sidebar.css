@@ -1,0 +1,41 @@
+.Sidebar {
+  width: 200px;
+  background-color: #1e1e1e;
+  color: white;
+  height: 100vh;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.Sidebar h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.Sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.Sidebar li {
+  padding: 10px 12px;
+  margin: 6px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.Sidebar li:hover {
+  background-color: #333;
+}
+
+.Sidebar li.active {
+  background-color: #444;
+  font-weight: bold;
+}

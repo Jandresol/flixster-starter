@@ -1,13 +1,15 @@
-button {
-  background-color: #282c34;
+.load-button {
+  background-color: #0891b2;
+  border: 2px solid #282c347b;
   color: white;
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
   transition: background-color 0.3s ease;
+  padding: 10px 20px;
 }
 
-button:hover {
+.load-button:hover {
   background-color: #777;
   color: white;
 }
