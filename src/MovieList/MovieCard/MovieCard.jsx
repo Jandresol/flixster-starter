@@ -27,8 +27,6 @@ function MovieCard({ id, title, poster, rating, favorites, watched, toggleFavori
     function handleFavorite(e) {
         e.stopPropagation();
         toggleFavorite(id);
-                console.log("favorite");
-
     }
 
     function handleWatched(e) {

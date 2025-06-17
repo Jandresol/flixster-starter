@@ -5,7 +5,7 @@ import MovieList from './MovieList/MovieList.jsx'
 import LoadMore from './LoadMore/LoadMore.jsx'
 import '@fortawesome/fontawesome-free/css/all.css';
 import Sidebar from './Sidebar/Sidebar.jsx';
-
+import SplashScreen from './SplashScreen/SplashScreen.jsx';
 const App = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -19,6 +19,7 @@ const App = () => {
   const [watched, setWatched] = useState(new Set());
   const [view, setView] = useState("home");
   const [sidebarShow, setSidebarShow] = useState(false);
+  const [splash, setSplash] = useState(true);
   let filteredMovies = movies;
 
   if (view === "favorites") {
@@ -26,6 +27,16 @@ const App = () => {
   } else if (view === "watched") {
     filteredMovies = movies.filter((movie) => watched.has(movie.id));
   }
+
+  
+useEffect(() => {
+  const timer = setTimeout(() => {
+    setSplash(false);
+  }, 2000); // 2-second splash screen
+
+  return () => clearTimeout(timer);
+}, []);
+
 
   // Fetch movies whenever page, searchQuery, or category changes
   useEffect(() => {
@@ -166,6 +177,7 @@ const App = () => {
   return (
     <div className="App">
       <div className="app-container">
+        {(splash || loading) && <SplashScreen />}
         <Sidebar
           view={view}
           setView={setView}
