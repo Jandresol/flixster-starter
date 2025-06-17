@@ -84,7 +84,7 @@ function Modal({ id, show, onClose, title, rating, poster, releaseDate, overview
                                 onClick={handleWatched}
                             >
                                 <i className={`${watched ? 'fas' : 'far'} fa-eye`}></i>
-                                {watched ? 'Watched' : 'Mark as Watched'}
+                                {watched ? 'Mark as Unwatched' : 'Mark as Watched'}
                             </button>
                         </div>
 
