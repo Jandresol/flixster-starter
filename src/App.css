@@ -31,3 +31,16 @@
   margin-top: auto; 
 }
 
+.no-results {
+  font-family: 'Outfit';
+  margin: 2rem auto;
+  padding: 1.5rem 2rem;
+  max-width: 600px;
+  text-align: center;
+  background-color: rgba(31, 41, 55, 0.7);
+  border-radius: 12px;
+  font-size: 1.2rem;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+

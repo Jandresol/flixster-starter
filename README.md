@@ -102,9 +102,9 @@ Deployed Application (optional): [Flixster Deployed Site](https://flixster-ribk.
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. Ensure your walkthrough showcases the presence and/or functionality of all features you implemented above (check them off as you film!). Pay attention to any **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS** checkboxes listed above to ensure graders see the full functionality of your website! (🚫 Remove this paragraph after adding walkthrough video)
+`https://www.loom.com/share/18791e13588f4c068982261097d3011f?sid=f6fa5535-145c-4afb-8389-3f71629eba65` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. Ensure your walkthrough showcases the presence and/or functionality of all features you implemented above (check them off as you film!). Pay attention to any **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS** checkboxes listed above to ensure graders see the full functionality of your website! (🚫 Remove this paragraph after adding walkthrough video)
 
-`ADD_EMBEDDED_CODE_HERE`
+`<div style="position: relative; padding-bottom: 55.41666666666667%; height: 0;"><iframe src="https://www.loom.com/embed/18791e13588f4c068982261097d3011f?sid=63ec74c5-f7b4-4682-a9c2-039d2e06c0c0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>`
 
 ### Reflection
 
@@ -114,7 +114,7 @@ Add your response here
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+I accomplished all the goals that I wanted to. If I had more time, i would foxus on refactoring my code so 
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
@@ -123,6 +123,7 @@ Add your response here
 ### Open-source libraries used
 
 https://dev.to/annaqharder/how-to-move-item-cards-to-a-favorites-page-in-react-hg5
+https://loading.io/css/
 
 ### Shout out
 
