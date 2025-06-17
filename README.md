@@ -101,8 +101,7 @@ Deployed Application (optional): [Flixster Deployed Site](https://flixster-ribk.
   - [x] The Watched page displays all watched movies in a grid view.
 
 ### Walkthrough Video
-
-[![Walkthrough Video](https://www.loom.com/share/18791e13588f4c068982261097d3011f?sid=f6fa5535-145c-4afb-8389-3f71629eba65)] Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. Ensure your walkthrough showcases the presence and/or functionality of all features you implemented above (check them off as you film!). Pay attention to any **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS** checkboxes listed above to ensure graders see the full functionality of your website! (🚫 Remove this paragraph after adding walkthrough video)
+ Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. Ensure your walkthrough showcases the presence and/or functionality of all features you implemented above (check them off as you film!). Pay attention to any **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS** checkboxes listed above to ensure graders see the full functionality of your website! (🚫 Remove this paragraph after adding walkthrough video)
 
 <div>
     <a href="https://www.loom.com/share/18791e13588f4c068982261097d3011f">
@@ -112,7 +111,7 @@ Deployed Application (optional): [Flixster Deployed Site](https://flixster-ribk.
       <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/18791e13588f4c068982261097d3011f-736950e4e76cb70b-full-play.gif">
     </a>
   </div>
-  
+
 ### Reflection
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
