@@ -22,6 +22,13 @@ const App = () => {
   const [splash, setSplash] = useState(true);
   let filteredMovies = movies;
 
+  if (view === "favorites") {
+    filteredMovies = movies.filter((movie) => favorites.has(movie.id));
+  } else if (view === "watched") {
+    filteredMovies = movies.filter((movie) => watched.has(movie.id));
+  }
+
+  
 useEffect(() => {
   const timer = setTimeout(() => {
     setSplash(false);
@@ -205,7 +212,7 @@ useEffect(() => {
               <LoadMore onClick={handleLoadMore} />
             )}
             {loading && <div className="loading">Loading...</div>}
-            {/* {error && <div className="error">Error: {error}</div>} */}
+            {error && <div className="error">Error: {error}</div>}
             {movies.length === 0 && !loading && (
               <div className="no-results">
                 No movies found for "{searchQuery}". Try a different search term.
