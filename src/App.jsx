@@ -15,7 +15,6 @@ const App = () => {
   const [category, setCategory] = useState('popular');
   const [searchInput, setSearchInput] = useState('');
   const [sort, setSort] = useState('default');
-  const [sidebar, setSidebar] = useState('home')
   const [favorites, setFavorites] = useState(new Set());
   const [watched, setWatched] = useState(new Set());
   const [view, setView] = useState("home");
@@ -168,10 +167,11 @@ const App = () => {
     <div className="App">
       <div className="app-container">
         <Sidebar
-            setView={setView}
-            toggleSidebar={toggleSidebar}
-            sidebarShow={sidebarShow}
-          />
+          view={view}
+          setView={setView}
+          toggleSidebar={toggleSidebar}
+          sidebarShow={sidebarShow}
+        />
       
         
         <div className="main-content">
