@@ -8,6 +8,8 @@
     height: 100vh;
     background-color: #090b0ec2;
     backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+
 }
 
 .modal-content {
@@ -24,7 +26,7 @@
     position: relative;
     top: 50%;
     transform: translateY(-50%);
-    box-shadow: 0 20px 60px rgba(132, 132, 132, 0.3);
+    box-shadow: 0 20px 60px rgba(54, 54, 54, 0.3);
 }
 
 i {
@@ -84,7 +86,7 @@ p{
 }
 
 .modal-close:hover{
-    background-color: #5555f76d;
+    background-color: #559ef76d;
     color: #f0f0f0;
     transform: rotate(90deg);
 
@@ -114,7 +116,7 @@ p{
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, #3341553d 0%, #1e293bdf 100%);
+    background: linear-gradient(to bottom, #3341553d 0%, #1e293b96 100%);
     z-index: 5;
 }
 
@@ -164,14 +166,19 @@ p{
 
 .genre-pill {
     font-family: 'Inter';
-    color: #d5d6ff;
+    color: #d5fffc;
     padding: 5px 20px;
-    border: 2px solid #5d55f7;
-    background-color: #2d2297;
+    border: 2px solid #55c1f7;
+    background-color: #225e97;
     border-radius: 20px;
     font-weight: bold;
+    transition: all 0.3s ease;
 }
 
+.genre-pill:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
 .genre-container {
     display: flex;
     flex-direction: row;

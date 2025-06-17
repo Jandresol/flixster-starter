@@ -36,6 +36,33 @@ header h1 {
     gap: 10px;
 }
 
+.header-top {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+}     
+
+.hamburger {
+    position: absolute;
+    left: 40px;
+    font-size: 40px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+}
+
+.hamburger:hover{
+    color: #06b6d4;
+    background-color: rgba(31, 41, 55, 0.6);
+
+}
+
+
 @media (max-width: 768px) {
     header{
         padding: 20px;
@@ -54,3 +81,4 @@ header h1 {
         flex-direction: column;
     }
 }
+

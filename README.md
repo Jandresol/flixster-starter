@@ -12,15 +12,15 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 
 #### REQUIRED FEATURES
 
-- [ ] **Display Movies**
-  - [ ] Users can view a list of current movies from The Movie Database API in a grid view.
-    - [ ] Movie tiles should be reasonably sized (at least 6 playlists on your laptop when full screen; large enough that the playlist components detailed in the next feature are legible).
-  - [ ] For each movie displayed, users can see the movie's:
-    - [ ] Title
-    - [ ] Poster image
-    - [ ] Vote average
-  - [ ] Users can load more current movies by clicking a button which adds more movies to the grid without reloading the entire page. 
-- [ ] **Search Functionality**
+- [x] **Display Movies**
+  - [x] Users can view a list of current movies from The Movie Database API in a grid view.
+    - [x] Movie tiles should be reasonably sized (at least 6 playlists on your laptop when full screen; large enough that the playlist components detailed in the next feature are legible).
+  - [x] For each movie displayed, users can see the movie's:
+    - [x] Title
+    - [x] Poster image
+    - [x] Vote average
+  - [x] Users can load more current movies by clicking a button which adds more movies to the grid without reloading the entire page. 
+- [x] **Search Functionality**
   - [ ] Users can use a search bar to search for movies by title.
   - [ ] The search bar should include:
     - [ ] Text input field

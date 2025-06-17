@@ -14,10 +14,21 @@ function Header({
     handleCategoryChange,
     sort,
     handleSortChange,
+    toggleSidebar
 }){
+
     return (
         <header>
-            <h1>Flixster</h1>
+            <div className="header-top">
+                <button
+                    className="hamburger"
+                    onClick={toggleSidebar}
+                    aria-label="Toggle menu"
+                >
+                    ☰
+                </button>
+                <h1>Flixster</h1>
+            </div>
             <div className="controls">
                 <SearchBar
                     searchQuery={searchQuery}

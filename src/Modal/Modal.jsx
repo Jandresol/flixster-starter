@@ -11,6 +11,33 @@ function Modal({ show, onClose, title, rating, poster, releaseDate, overview, ge
     if (!show) {
         return null;
     }
+    const getGenreColor = (genreName) => {
+        const genreColors = {
+            'Action': { bg: '#8b2635', border: '#ff6b7a', text: '#ffe6e8' },
+            'Adventure': { bg: '#a0522d', border: '#ff8c42', text: '#fff4e6' },
+            'Animation': { bg: '#8b7355', border: '#ffd700', text: '#fffacd' },
+            'Comedy': { bg: '#556b2f', border: '#9acd32', text: '#f0fff0' },
+            'Crime': { bg: '#2d5016', border: '#32cd32', text: '#e6ffe6' },
+            'Documentary': { bg: '#2f4f4f', border: '#20b2aa', text: '#e0ffff' },
+            'Drama': { bg: '#1e4d5b', border: '#00bfff', text: '#e0f7ff' },
+            'Family': { bg: '#1e3a8a', border: '#3b82f6', text: '#dbeafe' },
+            'Fantasy': { bg: '#4c1d95', border: '#8b5cf6', text: '#f3e8ff' },
+            'History': { bg: '#831843', border: '#ec4899', text: '#fdf2f8' },
+            'Horror': { bg: '#4a1810', border: '#dc2626', text: '#fee2e2' },
+            'Music': { bg: '#0f766e', border: '#14b8a6', text: '#ccfbf1' },
+            'Mystery': { bg: '#1e1b4b', border: '#6366f1', text: '#e0e7ff' },
+            'Romance': { bg: '#881337', border: '#f43f5e', text: '#fdf2f8' },
+            'Science Fiction': { bg: '#134e4a', border: '#06b6d4', text: '#cffafe' },
+            'TV Movie': { bg: '#713f12', border: '#eab308', text: '#fefce8' },
+            'Thriller': { bg: '#450a0a', border: '#ef4444', text: '#fee2e2' },
+            'War': { bg: '#44403c', border: '#a3a3a3', text: '#f5f5f5' },
+            'Western': { bg: '#78350f', border: '#f59e0b', text: '#fef3c7' }
+        };
+        
+        // Return the specific color for the genre, or a default if not found
+        return genreColors[genreName] || { bg: '#374151', border: '#9ca3af', text: '#f9fafb' };
+    };
+
 
     return (
         <div className="Modal" onClick={onClose}>
@@ -45,11 +72,22 @@ function Modal({ show, onClose, title, rating, poster, releaseDate, overview, ge
                 <div className="modal-body">
                     <div className="modal-text">
                         <div className="genre-container">
-                            {genres.map((g, index) => (
-                            <span key={index} className="genre-pill">
-                                {g.name}
-                            </span>
-                        ))}
+                        {genres.map((g, index) => {
+                            const { bg, border, text } = getGenreColor(g.name);
+                            return (
+                                <span
+                                    className="genre-pill"
+                                    key={index}
+                                    style={{
+                                        backgroundColor: bg,
+                                        borderColor: border,
+                                        color: text,
+                                    }}
+                                >
+                                    {g.name}
+                                </span>
+                            );
+                        })}
                         </div>
                         {overview && 
                             <div className="modal-overview">

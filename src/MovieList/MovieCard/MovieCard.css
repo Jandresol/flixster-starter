@@ -4,14 +4,17 @@
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
+    transition: all 0.3s ease;
     cursor: pointer;
     position: relative; /* Added for absolute positioning of icons */
+    max-width: 500px;
+    border: solid 3px transparent;
     
 }
 
 .MovieCard:hover {
     transform: scale(1.05);
+    border: solid 3px var(--border-color, #0891b2);
 }
 
 .movie-image {
@@ -20,6 +23,9 @@
     display: block;
     color: #ffffff00;
     margin-bottom: 20px;
+    aspect-ratio: .66;
+    object-fit: cover;
+
 }
 
 .movie-text {
@@ -40,8 +46,8 @@
     color: #bababa;
 }
 
-i {
-    color: #facc15;
+.MovieCard i {
+    color: #fabd15;
 }
 
 .favorite-icon, .watched-icon {

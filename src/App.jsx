@@ -19,6 +19,7 @@ const App = () => {
   const [favorites, setFavorites] = useState(new Set());
   const [watched, setWatched] = useState(new Set());
   const [view, setView] = useState("home");
+  const [sidebarShow, setSidebarShow] = useState(false);
   let filteredMovies = movies;
 
   if (view === "favorites") {
@@ -131,14 +132,16 @@ const App = () => {
     setMovies(prev => sortMovies([...prev], newSort));
   }
 
-  const handleSidebar = (selection) => {
-      setSidebar(selection);
-  };
 
   const toggleFavorite = (id) => {
     setFavorites((prev) => {
         const updated = new Set(prev);
-        updated.has(id) ? updated.delete(id) : updated.add(id);
+        if (updated.has(id)) {
+          updated.delete(id)
+        } 
+        else {
+          updated.add(id);
+        }
         return updated;
     });
   }
@@ -146,16 +149,30 @@ const App = () => {
   const toggleWatched = (id) => {
       setWatched((prev) => {
           const updated = new Set(prev);
-          updated.has(id) ? updated.delete(id) : updated.add(id);
+          if (updated.has(id)) {
+            updated.delete(id)
+          } 
+          else {
+            updated.add(id);
+          }
           return updated;
       });
   }
 
+  const toggleSidebar = () => {
+    setSidebarShow(prev => !prev);
+
+  }
 
   return (
     <div className="App">
       <div className="app-container">
-        <Sidebar setView={setView} />
+        <Sidebar
+            setView={setView}
+            toggleSidebar={toggleSidebar}
+            sidebarShow={sidebarShow}
+          />
+      
         
         <div className="main-content">
           <Header
@@ -168,6 +185,7 @@ const App = () => {
             handleCategoryChange={handleCategoryChange}
             sort={sort}
             handleSortChange={handleSortChange}
+            toggleSidebar={toggleSidebar}
           />
           
           <main className="content-area">

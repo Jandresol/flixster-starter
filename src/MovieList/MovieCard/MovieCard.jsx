@@ -66,7 +66,15 @@ function MovieCard({ id, title, poster, rating, favorite, watched, toggleFavorit
                     onClick={handleWatched}
                     style={{ color: watched ? '#3498db' : '#bdc3c7' }}
                 ></i>
-                <img className="movie-image" src={poster} alt={title} />
+                <img
+                className="movie-image"
+                src={poster}
+                alt={title}
+                onError={(e) => {
+                    e.target.onerror = null; // prevents infinite loop
+                    e.target.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoWcWg0E8pSjBNi0TtiZsqu8uD2PAr_K11DA&s';
+                }}
+                />
                 <div className="movie-text">
                     <h3 className="title">{title}</h3>
                     <h4 className="rating">
