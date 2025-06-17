@@ -7,7 +7,7 @@ const formatDate = (dateString) => {
     return date.toLocaleDateString('en-US', options);
 };
 
-function Modal({ show, onClose, title, rating, poster, releaseDate, overview, genres, runtime, trailerId }) {
+function Modal({ id, show, onClose, title, rating, poster, releaseDate, overview, genres, runtime, trailerId, favorites, watched, handleFavorite, handleWatched }) {
     if (!show) {
         return null;
     }
@@ -71,6 +71,23 @@ function Modal({ show, onClose, title, rating, poster, releaseDate, overview, ge
                 </div>
                 <div className="modal-body">
                     <div className="modal-text">
+                        <div className="action-buttons">
+                            <button 
+                                className={`action-button favorite-button ${favorites ? 'active' : ''}`}
+                                onClick={handleFavorite}
+                            >
+                                <i className={`${favorites ? 'fas' : 'far'} fa-heart`}></i>
+                                {favorites ? 'Added to Favorites' : 'Add to Favorites'}
+                            </button>
+                            <button 
+                                className={`action-button watched-button ${watched ? 'active' : ''}`}
+                                onClick={handleWatched}
+                            >
+                                <i className={`${watched ? 'fas' : 'far'} fa-eye`}></i>
+                                {watched ? 'Watched' : 'Mark as Watched'}
+                            </button>
+                        </div>
+
                         <div className="genre-container">
                         {genres.map((g, index) => {
                             const { bg, border, text } = getGenreColor(g.name);

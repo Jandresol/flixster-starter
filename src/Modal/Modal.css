@@ -192,6 +192,82 @@ iframe{
     border-radius: 20px;
     border: none;
 }
+
+.action-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.action-button{
+    padding: 8px 16px;
+    border: 2px solid #a1a1a15c;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    font-size: 16px;
+    font-family: 'Outfit';
+}
+/* Default state (not favorited) */
+.favorite-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #334155; /* bg-slate-700 */
+  color: #d1d5db; /* text-gray-300 */
+}
+
+.favorite-button:hover {
+  background-color: #dc2626; /* hover:bg-red-600 */
+  color: #ffffff; /* hover:text-white */
+}
+
+/* Active state (favorited) */
+.favorite-button.active {
+  background-color: #dc2626; /* bg-red-600 */
+  color: #ffffff; /* text-white */
+}
+
+.favorite-button.active:hover {
+  background-color: #b91c1c; /* hover:bg-red-700 */
+}
+
+/* Default state (not watched) */
+.watched-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #334155; /* bg-slate-700 */
+  color: #d1d5db; /* text-gray-300 */
+}
+
+.watched-button:hover {
+  background-color: #16a34a; /* hover:bg-green-600 */
+  color: #ffffff; /* hover:text-white */
+}
+
+/* Active state (watched) */
+.watched-button.active {
+  background-color: #16a34a; /* bg-green-600 */
+  color: #ffffff; /* text-white */
+}
+
+.watched-button.active:hover {
+  background-color: #15803d; /* hover:bg-green-700 */
+}
+
 @media (max-width: 768px){
     .genre-container {
         flex-direction: column;

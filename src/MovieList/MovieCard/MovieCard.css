@@ -68,11 +68,11 @@
 }
 
 .favorite-icon {
-    right: 10px;
+    right: 60px;
 }
 
 .watched-icon {
-    right: 60px; /* Positioned to the left of favorite icon */
+    right: 10px; /* Positioned to the left of favorite icon */
 }
 
 .favorite-icon:hover, .watched-icon:hover {

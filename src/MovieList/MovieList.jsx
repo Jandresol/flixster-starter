@@ -12,7 +12,7 @@ function MovieList({ movies, favorites, watched, toggleFavorite, toggleWatched }
                         title={movie.title}
                         poster={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                         rating={movie.vote_average}
-                        favorite={favorites.has(movie.id)}
+                        favorites={favorites.has(movie.id)}
                         watched={watched.has(movie.id)}
                         toggleFavorite={toggleFavorite}
                         toggleWatched={toggleWatched}

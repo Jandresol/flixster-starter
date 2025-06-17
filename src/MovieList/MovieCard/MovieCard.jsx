@@ -2,7 +2,7 @@ import './MovieCard.css'
 import Modal from '../../Modal/Modal.jsx'
 import { useState } from 'react';
 
-function MovieCard({ id, title, poster, rating, favorite, watched, toggleFavorite, toggleWatched }) {
+function MovieCard({ id, title, poster, rating, favorites, watched, toggleFavorite, toggleWatched }) {
     const [selectedMovie, setSelectedMovie] = useState(null);
     const [showModal, setShowModal] = useState(false);
     const [trailerId, setTrailerId] = useState(null);
@@ -57,14 +57,14 @@ function MovieCard({ id, title, poster, rating, favorite, watched, toggleFavorit
         <>
             <div className="MovieCard" onClick={handleCardClick}>
                 <i 
-                    className={`favorite-icon ${favorite ? 'fas' : 'far'} fa-heart`}
+                    className={`favorite-icon ${favorites ? 'fas' : 'far'} fa-heart`}
                     onClick={handleFavorite}
-                    style={{ color: favorite ? '#e74c3c' : '#bdc3c7' }}
+                    style={{ color: favorites ? '#e74c3c' : '#bdc3c7' }}
                 ></i>
                 <i 
                     className={`watched-icon ${watched ? 'fas' : 'far'} fa-eye `}
                     onClick={handleWatched}
-                    style={{ color: watched ? '#3498db' : '#bdc3c7' }}
+                    style={{ color: watched ? '#16a34a' : '#bdc3c7' }}
                 ></i>
                 <img
                 className="movie-image"
@@ -85,6 +85,7 @@ function MovieCard({ id, title, poster, rating, favorite, watched, toggleFavorit
             </div>
             {selectedMovie && (
                 <Modal
+                    id={id}
                     title={title}
                     show={showModal}
                     onClose={handleClose}
@@ -95,6 +96,10 @@ function MovieCard({ id, title, poster, rating, favorite, watched, toggleFavorit
                     genres={selectedMovie.genres}
                     runtime={selectedMovie.runtime}
                     trailerId={trailerId} 
+                    favorites={favorites}
+                    watched={watched} 
+                    handleFavorite={handleFavorite} 
+                    handleWatched={handleWatched}
                 />
             )}
         </>
