@@ -40,6 +40,10 @@ i {
     gap: 0px;
 }
 
+.modal-title{
+    text-align: center;
+}
+
 p{
     display: flex;
     justify-content: center;

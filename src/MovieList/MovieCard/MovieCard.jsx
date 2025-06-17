@@ -2,7 +2,7 @@ import './MovieCard.css'
 import Modal from '../../Modal/Modal.jsx'
 import { useState } from 'react';
 
-function MovieCard({ id, title, poster, rating, favorite, watched, onFavoriteToggle, onWatchedToggle }) {
+function MovieCard({ id, title, poster, rating, favorite, watched, toggleFavorite, toggleWatched }) {
     const [selectedMovie, setSelectedMovie] = useState(null);
     const [showModal, setShowModal] = useState(false);
     const [trailerId, setTrailerId] = useState(null);
@@ -26,12 +26,15 @@ function MovieCard({ id, title, poster, rating, favorite, watched, onFavoriteTog
     
     function handleFavorite(e) {
         e.stopPropagation();
-        onFavoriteToggle(id);
+        toggleFavorite(id);
+                console.log("favorite");
+
     }
 
     function handleWatched(e) {
         e.stopPropagation();
-        onWatchedToggle(id);
+        toggleWatched(id);
+        console.log("watched");
     }
 
     const loadTrailer = async () => {

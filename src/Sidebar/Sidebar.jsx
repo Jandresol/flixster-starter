@@ -7,10 +7,10 @@ function Sidebar({ setView }) {
                 <li onClick={() => setView('home')}>
                     <i className="fas fa-film"></i> Home
                 </li>
-                <li onClick={() => setView('watched')}>
+                <li onClick={() => setView('favorites')}>
                     <i className="far fa-heart"></i> Favorites
                 </li>
-                <li onClick={() => setView('favorited')}>
+                <li onClick={() => setView('watched')}>
                     <i className="far fa-eye"></i> Watched
                 </li>
             </ul>

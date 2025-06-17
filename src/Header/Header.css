@@ -4,13 +4,16 @@
 
 header{
     display: flex;
-    background-color: rgba(38, 38, 38, 0);
+    background: linear-gradient(to bottom, #080c1f, transparent);
+    background-color: transparent;
     align-items: center;
     justify-content: center;
+    height: 240px;
     padding: 40px;
     flex-direction: column;
     overflow: none;
-    color: white
+    color: white;
+
 }
 
 header h1 {

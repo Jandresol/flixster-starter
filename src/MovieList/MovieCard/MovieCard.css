@@ -7,6 +7,7 @@
     transition: transform 0.2s ease;
     cursor: pointer;
     position: relative; /* Added for absolute positioning of icons */
+    
 }
 
 .MovieCard:hover {
@@ -17,7 +18,8 @@
     width: 100%;
     height: auto;
     display: block;
-    color: #ffffff00
+    color: #ffffff00;
+    margin-bottom: 20px;
 }
 
 .movie-text {

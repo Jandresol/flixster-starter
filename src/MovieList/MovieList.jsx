@@ -1,7 +1,7 @@
 import './MovieList.css'
 import MovieCard from './MovieCard/MovieCard.jsx'
 
-function MovieList({ movies, favorites, watched, onFavoriteToggle, onWatchedToggle }) {
+function MovieList({ movies, favorites, watched, toggleFavorite, toggleWatched }) {
     return (
         <div className="MovieList">
             {movies.map((movie, index) => {
@@ -14,8 +14,8 @@ function MovieList({ movies, favorites, watched, onFavoriteToggle, onWatchedTogg
                         rating={movie.vote_average}
                         favorite={favorites.has(movie.id)}
                         watched={watched.has(movie.id)}
-                        onFavoriteToggle={onFavoriteToggle}
-                        onWatchedToggle={onWatchedToggle}
+                        toggleFavorite={toggleFavorite}
+                        toggleWatched={toggleWatched}
                     />
                 );
             })}

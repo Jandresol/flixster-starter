@@ -154,40 +154,46 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header
-        searchQuery={searchQuery}
-        searchInput={searchInput}
-        handleSearchChange={handleSearchChange}
-        clearSearch={clearSearch}
-        category={category}
-        handleSearchSubmit={handleSearchSubmit}
-        handleCategoryChange={handleCategoryChange}
-        sort={sort}
-        handleSortChange={handleSortChange}
-      />
-      <main>
-        <div style={{ marginLeft: '200px', padding: '20px', flexGrow: 1 }}>
+      <div className="app-container">
+        <Sidebar setView={setView} />
+        
+        <div className="main-content">
+          <Header
+            searchQuery={searchQuery}
+            searchInput={searchInput}
+            handleSearchChange={handleSearchChange}
+            clearSearch={clearSearch}
+            category={category}
+            handleSearchSubmit={handleSearchSubmit}
+            handleCategoryChange={handleCategoryChange}
+            sort={sort}
+            handleSortChange={handleSortChange}
+          />
+          
+          <main className="content-area">
+            <MovieList 
+              movies={filteredMovies}
+              favorites={favorites}
+              watched={watched}
+              toggleFavorite={toggleFavorite}
+              toggleWatched={toggleWatched} 
+            />
+            {movies.length > 0 && !loading && view === "home" && (
+              <LoadMore onClick={handleLoadMore} />
+            )}
+            {loading && <div className="loading">Loading...</div>}
+            {error && <div className="error">Error: {error}</div>}
+            {movies.length === 0 && !loading && (
+              <div className="no-results">
+                No movies found for "{searchQuery}". Try a different search term.
+              </div>
+            )}
+
+          </main>
+          
+          <footer className="app-footer">© 2025 Flixster</footer>
+        </div>
       </div>
-        {error && <div className="error">Error: {error}</div>}
-        {movies.length === 0 && !loading && (
-          <div className="no-results">
-            No movies found for "{searchQuery}". Try a different search term.
-          </div>
-        )}
-        <MovieList 
-          movies={filteredMovies}
-          favorites={favorites}
-          watched={watched}
-          onFavoriteToggle={toggleFavorite}
-          onWatchedToggle={toggleWatched} 
-        />
-        {movies.length > 0 && !loading && (
-          <LoadMore onClick={handleLoadMore} />
-        )}
-        {loading && <div className="loading">Loading...</div>}
-      </main>
-      <footer>© 2025 Flixster</footer>
-      <Sidebar setView={setView} />
     </div>
   )
 }
